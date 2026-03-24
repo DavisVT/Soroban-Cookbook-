@@ -89,5 +89,4 @@ impl ProxyContract {
 }
 
 #[cfg(test)]
-#[cfg(test)]
 mod test;
