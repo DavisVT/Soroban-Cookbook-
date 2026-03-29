@@ -642,8 +642,7 @@ fn test_integration_two_of_three_auth_passes() {
     let signer2 = Address::generate(&env);
     let signer3 = Address::generate(&env);
 
-    let all_signers =
-        Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
+    let all_signers = Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
     let proposal_id = Symbol::new(&env, "integ_2of3");
 
     // Configure the proposal: threshold = 2, valid signers = all three.
@@ -696,8 +695,7 @@ fn test_integration_two_of_three_auth_fails_below_threshold() {
     let signer2 = Address::generate(&env);
     let signer3 = Address::generate(&env);
 
-    let all_signers =
-        Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
+    let all_signers = Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
     let proposal_id = Symbol::new(&env, "integ_2of3f");
 
     env.invoke_contract::<()>(
@@ -719,13 +717,7 @@ fn test_integration_two_of_three_auth_fails_below_threshold() {
     env.invoke_contract::<()>(
         &contract_id,
         &Symbol::new(&env, "proposal_approval"),
-        Vec::from_array(
-            &env,
-            [
-                proposal_id.into_val(&env),
-                approvers.into_val(&env),
-            ],
-        ),
+        Vec::from_array(&env, [proposal_id.into_val(&env), approvers.into_val(&env)]),
     );
 }
 
@@ -745,8 +737,7 @@ fn test_integration_three_of_three_auth_passes() {
     let signer2 = Address::generate(&env);
     let signer3 = Address::generate(&env);
 
-    let all_signers =
-        Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
+    let all_signers = Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
     let proposal_id = Symbol::new(&env, "integ_3of3");
 
     // Threshold = 3: every signer must approve.
@@ -832,8 +823,7 @@ fn test_integration_three_of_three_auth_fails_when_one_missing() {
     let signer2 = Address::generate(&env);
     let signer3 = Address::generate(&env);
 
-    let all_signers =
-        Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
+    let all_signers = Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
     let proposal_id = Symbol::new(&env, "integ_3of3f");
 
     env.invoke_contract::<()>(
@@ -855,13 +845,7 @@ fn test_integration_three_of_three_auth_fails_when_one_missing() {
     env.invoke_contract::<()>(
         &contract_id,
         &Symbol::new(&env, "proposal_approval"),
-        Vec::from_array(
-            &env,
-            [
-                proposal_id.into_val(&env),
-                approvers.into_val(&env),
-            ],
-        ),
+        Vec::from_array(&env, [proposal_id.into_val(&env), approvers.into_val(&env)]),
     );
 }
 
@@ -888,8 +872,7 @@ fn test_integration_cross_function_auth_isolation() {
     let signer3 = Address::generate(&env);
     let recipient = Address::generate(&env);
 
-    let all_signers =
-        Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
+    let all_signers = Vec::from_array(&env, [signer1.clone(), signer2.clone(), signer3.clone()]);
     let proposal_id = Symbol::new(&env, "integ_xfn");
 
     // Setup a 2-of-3 proposal.
